@@ -1,4 +1,4 @@
-import { StaticRouter } from "react-router-dom/server";
+import { StaticRouter } from "react-router-dom";
 import { renderToString } from "react-dom/server";
 import fs from "node:fs";
 import path from "node:path";

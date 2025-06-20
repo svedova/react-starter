@@ -12,14 +12,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  ssr: {
-    noExternal: fs
-      .readdirSync(path.join(__dirname, "node_modules"), {
-        withFileTypes: true,
-      })
-      .filter((dirent) => dirent.isDirectory() && !dirent.name.startsWith("."))
-      .map((dirent) => new RegExp(dirent.name)),
-  },
   resolve: {
     alias: [
       {
