@@ -48,7 +48,7 @@ const Home: React.FC = () => {
         )}
         <p>
           Checkout template from{" "}
-          <a href="https://github.com/stormkit-io/monorepo-template">GitHub</a>
+          <a href="https://github.com/stormkit-io/react-starter">GitHub</a>
         </p>
       </div>
       <p className="powered-by">
