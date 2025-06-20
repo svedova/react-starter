@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import reactLogo from "~/assets/react.svg";
 import Context from "~/context";
 
@@ -18,8 +18,9 @@ export const fetchData: FetchDataFunc = (match) => {
   });
 };
 
-const Home: React.FC = () => {
+export default function Home() {
   const context = useContext(Context);
+  const params = useParams<{ name: string }>();
 
   return (
     <div className="App">
@@ -32,6 +33,7 @@ const Home: React.FC = () => {
         </a>
       </div>
       <h1>Vite + React</h1>
+      <div className="list">Router parameters: {JSON.stringify(params)}</div>
       <div className="list">
         {context ? (
           <>
@@ -66,6 +68,4 @@ const Home: React.FC = () => {
       </p>
     </div>
   );
-};
-
-export default Home;
+}
