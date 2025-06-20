@@ -85,7 +85,6 @@ Here's a curated list of websites using this framework. Please feel free to add 
 | Site name                              | Description                                            |
 | -------------------------------------- | ------------------------------------------------------ |
 | [Stormkit.io](https://www.stormkit.io) | Deploy full stack javascript applications on the cloud |
-| [Feez.ws](https://www.feez.ws)         | Track your progress in public                          |
 
 ## License
 
