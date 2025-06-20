@@ -1,8 +1,6 @@
-> Minimal no-framework monorepo template built with Vite and React
+> Minimal no-framework template built with Vite and React
 
 ## Features
-
-[![Deploy with Stormkit](https://www.stormkit.io/button.svg)](https://api.stormkit.io/deploy?template=https%3A%2F%2Fgithub.com%2Fstormkit-io%2Freact-starter)
 
 ✔️ &nbsp;**Hybrid application:** Choose rendering method (SSG, SSR, SPA) based on routes
 
@@ -17,8 +15,6 @@
 ✔️ &nbsp;**HMR:** Hot module replacement support for all apps (SSR, SSG, SPA, API)
 
 ✔️ &nbsp;**Typescript:** Built-in TypeScript support
-
-✔️ &nbsp;**Jest:** Built-in Jest support
 
 ## Getting started
 
