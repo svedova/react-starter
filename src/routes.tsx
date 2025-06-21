@@ -13,6 +13,7 @@ type RouteExtended = RouteProps & {
 
 const routes: Route[] = [
   { path: "/", import: () => import("~/pages") },
+  { path: "/prerender", import: () => import("~/pages/prerender") },
   { path: "/:name", import: () => import("~/pages/ssr") },
 ];
 
