@@ -117,14 +117,25 @@ export default function Home() {
 Add a `fetchData` export to enable SSR:
 
 ```tsx
+import { useContext } from "react";
+import Context from "~/context";
+
 // src/pages/ssr.tsx
 export async function fetchData() {
   const data = await fetch("https://api.example.com/data");
-  return data.json();
+  return {
+    head: {
+        // meta tags
+    },
+    context: {
+        myParam: data.myParam;
+    }
+  };
 }
 
 export default function SSRPage({ data }: { data: any }) {
-  return <h1>Server-rendered: {data.title}</h1>;
+  const context = useContext(Context);
+  return <h1>Server-rendered: {data.myParam}</h1>;
 }
 ```
 
@@ -134,7 +145,9 @@ Configure routes to pre-render in `src/prerender.ts`:
 
 ```tsx
 // src/prerender.ts
-export default [{ path: "/" }, { path: "/about" }, { path: "/blog/post-1" }];
+
+// Export an array of paths to be prerendered.
+export default ["/", "/about", "/blog/post-1"];
 ```
 
 ## 🔌 API Routes
@@ -143,28 +156,20 @@ Create API endpoints by adding files to `src/api/`:
 
 ```typescript
 // src/api/hello.ts
-export default function handler(request: Request) {
-  return new Response(JSON.stringify({ message: "Hello, World!" }), {
-    headers: { "Content-Type": "application/json" },
-  });
-}
+export default async (req: http.IncomingMessage, res: http.ServerResponse) => {
+  res.setHeader("Content-Type", "application/json");
+  res.writeHead(200, "Success");
+  res.write(
+    JSON.stringify({
+      payload:
+        "This is an API function - can be deployed as a serverless function!",
+    })
+  );
+  res.end();
+};
 ```
 
 Access at: `http://localhost:5173/api/hello`
-
-### Dynamic API Routes
-
-```typescript
-// src/api/users/[id].ts
-export default function handler(request: Request) {
-  const url = new URL(request.url);
-  const id = url.pathname.split("/").pop();
-
-  return new Response(JSON.stringify({ userId: id }), {
-    headers: { "Content-Type": "application/json" },
-  });
-}
-```
 
 ## 🚀 Deployment
 
