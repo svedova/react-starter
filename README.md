@@ -60,24 +60,6 @@ The API is comptabile with [Stormkit](https://www.stormkit.io). [Check the docs]
 If you need to host the API elsewhere, you'll need to change the [vite.config.api.ts](./vite.config.api.ts) file and create a bundle from it. You may
 also need to write an entry point that calls the appropriate function based on the route.
 
-## Test
-
-Jest is already preconfigured to work with this repository. Simply run:
-
-```bash
-$ npm run test
-$ yarn test
-$ pnpm run test
-```
-
-to execute all tests. You can add the `--watch` flag to keep listening to changes while testing:
-
-```bash
-$ npm run test -- --watch
-$ yarn test --watch
-$ pnpm run test --watch
-```
-
 ## Community
 
 Here's a curated list of websites using this framework. Please feel free to add your own:
