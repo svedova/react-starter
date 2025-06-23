@@ -34,14 +34,14 @@ async function createServer() {
 
   // Add support for a local environment API.
   app.all(
-    ["/api", "/api/*"],
+    ["/api", "/api/*splat"],
     apiMiddleware({
       apiDir: "src/api",
       moduleLoader: vite.ssrLoadModule,
     })
   );
 
-  app.get("*", async (req, res, next) => {
+  app.get("*splat", async (req, res, next) => {
     try {
       const url: string = req.originalUrl.split(/\?#/)[0] || "/";
 
@@ -62,7 +62,7 @@ async function createServer() {
 
       const rendered = await render(url);
 
-      return res
+      res
         .status(rendered.status)
         .set({ "Content-Type": "text/html" })
         .send(injectContent(rendered.head, rendered.content, template));
