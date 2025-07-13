@@ -22,16 +22,6 @@ const files = glob
 (async () => {
   for (const file of files) {
     await build({
-      ssr: {
-        noExternal: fs
-          .readdirSync(path.join(__dirname, "node_modules"), {
-            withFileTypes: true,
-          })
-          .filter(
-            (dirent) => dirent.isDirectory() && !dirent.name.startsWith(".")
-          )
-          .map((dirent) => new RegExp(dirent.name)),
-      },
       configFile: false,
       resolve: {
         alias: [
