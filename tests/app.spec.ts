@@ -14,7 +14,7 @@ const test = async () => {
 
   try {
     // Navigate to your application
-    const response = await page.goto(url);
+    const response = await page.goto(url, { timeout: 60000 });
 
     // Test your application
     await page.waitForSelector(".list");
