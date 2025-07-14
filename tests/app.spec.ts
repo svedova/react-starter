@@ -42,5 +42,6 @@ const test = async () => {
     await test();
   } catch (e) {
     console.error(e);
+    process.exit(1);
   }
 })();
