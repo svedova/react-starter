@@ -139,8 +139,8 @@ async function generateStaticPages() {
 }
 
 (async () => {
-  if (process.env.SSG === "true") {
-    console.info("Detected SSG=true - generating static routes...");
+  if (process.argv.includes("--ssg")) {
+    console.info("Detected --ssg flag - generating static routes...");
     await generateStaticPages();
   } else {
     createServer();
